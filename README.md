@@ -1,94 +1,15 @@
-﻿# FastAPI 12-Factor Project
 FastAPI 12-Factor Demo
-A simple FastAPI-based microservice demonstrating 12-Factor App principles. The app provides a health check endpoint and a utility to calculate the square of a number.
+This is a minimal FastAPI-based microservice project that follows the 12-Factor App methodology. The app demonstrates core principles like environment-based configuration, portability, and stateless processes.
+
 Features
+Health Check Endpoint: /health/check – A simple endpoint to check if the app is running.
 
-Health check endpoint (/health/check)
-Square calculator endpoint (/health/square/{number})
-Environment variable configuration using Pydantic
-Pre-commit hooks for code formatting
-Unit tests with Pytest
-Modular project structure
+Square Calculator Endpoint: /health/square/{number} – An endpoint to compute the square of a given number.
 
-Prerequisites
+Environment Variable Configuration: Uses Pydantic to load settings from environment variables.
 
-Python 3.11+
-Git
+Pre-commit Hooks: Ensures that your code is always formatted according to style guidelines before committing.
 
-Setup
+Unit Tests: Uses Pytest for testing the app’s functionality.
 
-Clone the repository:
-git clone <your-repo-url>
-cd fastapi-12factor
-
-
-Create and activate a virtual environment:
-python -m venv venv
-source venv/bin/activate  # On Windows: .\venv\Scripts\activate
-
-
-Install dependencies:
-pip install -r requirements.txt
-
-
-Create a .env file in the project root with the following:
-APP_NAME=FastAPI 12-Factor Demo
-APP_ENV=development
-API_PORT=8000
-
-
-
-Running the App
-
-Start the FastAPI server:
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-
-
-Open your browser and visit:
-
-Swagger UI: http://localhost:8000/docs
-Health check: http://localhost:8000/health/check
-Square calculator: http://localhost:8000/health/square/5
-
-
-
-Running Tests
-Run the test suite with:
-pytest
-
-12-Factor Principles Applied
-
-Codebase: Single Git repository with a develop branch.
-Dependencies: Explicitly declared in requirements.txt.
-Config: Stored in .env and loaded via Pydantic.
-Build, Release, Run: Clear separation (run via uvicorn).
-Processes: Stateless FastAPI app.
-Port Binding: Binds to port defined in .env.
-Dev/Prod Parity: Uses virtual environment for consistency.
-Logs: FastAPI logs to stdout.
-Admin Processes: Tests and pre-commit hooks for maintenance.
-
-Project Structure
-fastapi-12factor/
-├── app/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── config.py
-│   └── routes/
-│       ├── __init__.py
-│       └── health.py
-├── tests/
-│   ├── __init__.py
-│   └── test_health.py
-├── .env
-├── .gitignore
-├── .pre-commit-config.yaml
-├── README.md
-├── requirements.txt
-
-Notes
-
-The app is kept simple to focus on 12-Factor principles.
-Pre-commit hooks ensure code quality.
-Tests cover the health check endpoint.
-
+Modular Project Structure: Organized to keep things scalable and clean.
